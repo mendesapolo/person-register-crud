@@ -22,7 +22,7 @@ export default class ProfissaosController {
         return response.ok(profissaos)
     }
 
-    public async getAllWitAssocietion({ request, response }: HttpContextContract) {
+    public async getAllWithAssocietion({ request, response }: HttpContextContract) {
         const page = request.input('page') || 1
         const perPage = request.input('perPage') || 10
 
