@@ -19,6 +19,7 @@ export default class PessoasController {
             .select('*')
             .preload('profissao')
             .where('isDeleted', false)
+            .orderBy('createdAt', 'desc')
             .paginate(page, perPage)
 
         if (!pessoas) return response.badRequest({ message: this.messages.wharning })
@@ -29,7 +30,8 @@ export default class PessoasController {
         try {
             const id = params.id
             const pessoa = await Pessoa.findOrFail(id)
-            return response.ok(pessoa)
+            await pessoa.load('profissao')
+            return response.ok({ data: pessoa })
         } catch (err) {
             return response.badRequest({ message: 'Pessoa não encontrada' })
         }
