@@ -6,6 +6,7 @@ export default class Pessoas extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
+      
       table.string('nome', 100).notNullable()
       table.string('telefone', 25).notNullable()
       table.string('email', 125).nullable()

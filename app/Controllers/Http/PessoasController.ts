@@ -69,7 +69,7 @@ export default class PessoasController {
 
             return response.ok({ message: this.messages.success })
         } catch (err) {
-            return response.badRequest({ message: this.messages.error })
+            return response.status(500).json({ message: this.messages.error })
         }
     }
 

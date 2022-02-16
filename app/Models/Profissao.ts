@@ -15,7 +15,7 @@ export default class Profissao extends BaseModel {
   @hasMany(() => Pessoa)
   public pessoas: HasMany<typeof Pessoa>
 
-  @column.dateTime({ autoCreate: true })
+  @column.dateTime({ autoCreate: true, autoUpdate: false })
   public createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })

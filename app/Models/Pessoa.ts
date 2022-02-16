@@ -24,10 +24,10 @@ export default class Pessoa extends BaseModel {
   @belongsTo(() => Profissao)
   public profissao: BelongsTo<typeof Profissao>
 
-  @column.dateTime({ autoCreate: true })
+  @column.dateTime({ autoCreate: true, autoUpdate: false })
   public createdAt: DateTime
 
-  @column.dateTime({ autoCreate: true, autoUpdate: false })
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
 }
